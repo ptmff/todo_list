@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import TodoList from './components/TodoList';
 import ThemeToggle from './components/ThemeToggle';
+import { fetchTodos } from './store/todoSlice';
 import './App.css';
 
 function App() {
-  // Поддержка темной/светлой темы
   const [theme, setTheme] = useState('light');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('appTheme');
@@ -18,11 +20,20 @@ function App() {
     localStorage.setItem('appTheme', newTheme);
   };
 
+  const refreshTodos = () => {
+    dispatch(fetchTodos());
+  };
+
   return (
     <div className={`app ${theme}`}>
       <header>
         <h1>Todo App</h1>
-        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <button onClick={refreshTodos} className="btn-refresh" title="Refresh">
+            &#x21bb;
+          </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        </div>
       </header>
       <main>
         <TodoList />
