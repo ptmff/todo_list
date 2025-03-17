@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это одностраничное приложение, реализованное на React с использованием Redux для управления состоянием. Приложение позволяет добавлять, редактировать и удалять задачи (todo), поддерживает асинхронные действия и локальное кэширование с использованием Local Storage. Также реализована поддержка темной и светлой тем.
 
-## Available Scripts
+## Структура проекта
 
-In the project directory, you can run:
+- **frontend/**: React‑приложение.
+  - **src/**: Исходный код приложения.
+    - **components/**: Компоненты приложения (TodoList, TodoItem, ThemeToggle).
+    - **store/**: Настройка Redux store, слайсы и middleware.
+  - **public/**: Статичные файлы, включая `index.html`.
+  - **Dockerfile**: Файл для сборки Docker-образа.
 
-### `npm start`
+- **.env**: Файл для переменных окружения.
+- **docker-compose.yml**: Файл для запуска приложения с использованием Docker Compose.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Как запустить проект
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Клонирование репозитория:**
 
-### `npm test`
+   ```bash
+   git clone https://github.com/ptmff/todo_list
+   cd my-app
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Запуск через Docker Compose:**
 
-### `npm run build`
+   ```bash
+   docker-compose up
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Локальный запуск (без Docker):**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Перейдите в каталог `frontend` и выполните команды:
 
-### `npm run eject`
+   ```bash
+   npm install
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Функционал приложения
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Менеджер состояния:** Реализован с использованием Redux Toolkit.
+- **Асинхронные действия:** Пример асинхронного запроса для загрузки данных.
+- **Локальное кэширование:** Состояние сохраняется в Local Storage для повышения производительности.
+- **Темная/светлая тема:** Возможность переключения между темами.
+- **UI:** Динамическое обновление данных при изменении состояния.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Технологии
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React
+- Redux (Redux Toolkit)
+- Docker и Docker Compose
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
